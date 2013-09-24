@@ -43,7 +43,7 @@ namespace Aero
 
             //对每个Viewport2DVisual3D元素应用平移动画
             AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement, .3);
-            AnimationVisualElement(translate, true, -5.0, 1, -20.0);
+            AnimationVisualElement(translate, true, -5.0, 1.5, -20.0);
 
             translate = (child1.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
             AnimationVisualElement(translate, true, .0, .0, .0);
