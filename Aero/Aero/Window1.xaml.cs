@@ -36,7 +36,6 @@ namespace Aero
             var child4 = this.Viewport3D.Children[4];
             var child5 = this.Viewport3D.Children[5];
 
-
             this.Viewport3D.Children.RemoveAt(0);
             this.Viewport3D.Children.Insert(5, current);
 
@@ -44,7 +43,7 @@ namespace Aero
 
             //对每个Viewport2DVisual3D元素应用平移动画
             AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement, .3);
-            AnimationVisualElement(translate, true, -5.0, 1.5, -20.0);
+            AnimationVisualElement(translate, true, -5.0, 1, -20.0);
 
             translate = (child1.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
             AnimationVisualElement(translate, true, .0, .0, .0);
@@ -60,7 +59,6 @@ namespace Aero
 
             translate = (child5.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
             AnimationVisualElement(translate, true, -4.0, 1.5, -16.0);
-
         }
 
         public void MoveCurrentToPrevious()
@@ -96,6 +94,7 @@ namespace Aero
             translate = (child5.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
             AnimationVisualElement(translate, false, -5.0, 1.5, -20.0);
         }
+
         private void AnimationVisualElement(FrameworkElement element, double duration)
         {
             if (element == null)
@@ -107,8 +106,8 @@ namespace Aero
             objectAnimation.Duration = TimeSpan.FromSeconds(duration);
             objectAnimation.FillBehavior = FillBehavior.Stop;
             element.BeginAnimation(FrameworkElement.VisibilityProperty, objectAnimation);
-
         }
+
         private void AnimationVisualElement(TranslateTransform3D translate, bool forward, double targetX, double targetY, double targetZ)
         {
             Duration duration = new Duration(TimeSpan.FromSeconds(.4));
@@ -134,7 +133,6 @@ namespace Aero
             animationZ.Duration = duration;
             translate.BeginAnimation(TranslateTransform3D.OffsetZProperty, animationZ);
         }
-
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
