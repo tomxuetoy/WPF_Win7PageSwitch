@@ -14,7 +14,7 @@
         <DiffuseMaterial x:Key="material" Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="Transparent" />
     </Window.Resources>
     <Grid>
-        <Viewport3D  x:Name="Viewport3D" RenderOptions.EdgeMode="Aliased" ClipToBounds="False" IsHitTestVisible="False">
+        <Viewport3D  x:Name="Viewport3D" RenderOptions.EdgeMode="Unspecified" ClipToBounds="False" IsHitTestVisible="False">
             <Viewport3D.Camera>
                 <PerspectiveCamera Position="0,0,8"  />
             </Viewport3D.Camera>
