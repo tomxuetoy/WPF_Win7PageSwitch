@@ -29,20 +29,20 @@ namespace Aero
         public void MoveCurrentToNext()
         {
             //向前移动，取Viewport3D的第一个Viewport2DVisual3为当前Viewport2DVisual3D
-            var current = this.Viewport3D.Children[0];
-            var child1 = this.Viewport3D.Children[1];
-            var child2 = this.Viewport3D.Children[2];
-            var child3 = this.Viewport3D.Children[3];
-            var child4 = this.Viewport3D.Children[4];
-            var child5 = this.Viewport3D.Children[5];
+            var current = this.myViewport3D.Children[0];
+            var child1 = this.myViewport3D.Children[1];
+            var child2 = this.myViewport3D.Children[2];
+            var child3 = this.myViewport3D.Children[3];
+            var child4 = this.myViewport3D.Children[4];
+            var child5 = this.myViewport3D.Children[5];
 
-            this.Viewport3D.Children.RemoveAt(0);
-            this.Viewport3D.Children.Insert(5, current);
+            this.myViewport3D.Children.RemoveAt(0);
+            this.myViewport3D.Children.Insert(5, current);
 
+            //Why use Children[1]? Check XAML.
             var translate = (current.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
-
             //对每个Viewport2DVisual3D元素应用平移动画
-            AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement, .3);
+            //AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement, .3);
             AnimationVisualElement(translate, true, -5.0, 1.5, -20.0);
 
             translate = (child1.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
@@ -64,18 +64,17 @@ namespace Aero
         public void MoveCurrentToPrevious()
         {
             //向后移动，取Viewport3D的最后一个Viewport2DVisual3D当前Viewport2DVisual3D
-            var current = this.Viewport3D.Children[5];
-            var child1 = this.Viewport3D.Children[0];
-            var child2 = this.Viewport3D.Children[1];
-            var child3 = this.Viewport3D.Children[2];
-            var child4 = this.Viewport3D.Children[3];
-            var child5 = this.Viewport3D.Children[4];
+            var current = this.myViewport3D.Children[5];
+            var child1 = this.myViewport3D.Children[0];
+            var child2 = this.myViewport3D.Children[1];
+            var child3 = this.myViewport3D.Children[2];
+            var child4 = this.myViewport3D.Children[3];
+            var child5 = this.myViewport3D.Children[4];
 
-            this.Viewport3D.Children.RemoveAt(5);
-            this.Viewport3D.Children.Insert(0, current);
+            this.myViewport3D.Children.RemoveAt(5);
+            this.myViewport3D.Children.Insert(0, current);
 
             var translate = (current.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
-
             //AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement,.4);
             AnimationVisualElement(translate, false, 0.0, 0.0, 0.0);
 
