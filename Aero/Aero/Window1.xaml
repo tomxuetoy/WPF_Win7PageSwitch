@@ -8,9 +8,9 @@
     </Window.Background>
     <Window.Resources>
         <MeshGeometry3D  x:Key="geometry"
-               Positions="0 0 0, 1 1 0, 0 1 0, 0 0 0, 1 0 0, 1 1 0"
-               TextureCoordinates="0 1, 1 0, 0 0, 0 1, 1 1, 1 0" 
-               TriangleIndices="0 1 2 3 4 5"/>
+            Positions="-1,1.2,0, -1,-1.2,0, 3,-1.2,0, 3,1.2,0"
+            TextureCoordinates="0,0 0,1 1,1 1,0"
+            TriangleIndices="0 1 2 0 2 3"/>
         <DiffuseMaterial x:Key="material" Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="Transparent" />
     </Window.Resources>
     <Grid>

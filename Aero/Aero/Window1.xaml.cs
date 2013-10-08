@@ -39,11 +39,11 @@ namespace Aero
             this.myViewport3D.Children.RemoveAt(0);
             this.myViewport3D.Children.Insert(5, current);
 
-            //Why use Children[1]? Check XAML.
+            //Why use Children[1]? Just check XAML, e.g. line 23~31
             var translate = (current.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
             //对每个Viewport2DVisual3D元素应用平移动画
-            //AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement, .3);
-            AnimationVisualElement(translate, true, -5.0, 1.5, -20.0);
+            //AnimationVisualElement((current as Viewport2DVisual3D).Visual as FrameworkElement, .3); // jump effect: no intermediate state
+            AnimationVisualElement(translate, true, -5.0, 1.5, -20.0);  // do have some intermediate state
 
             translate = (child1.Transform as Transform3DGroup).Children[1] as TranslateTransform3D;
             AnimationVisualElement(translate, true, .0, .0, .0);
@@ -100,6 +100,7 @@ namespace Aero
                 return;
             //对Visual元素的Visibility应用动画
             ObjectAnimationUsingKeyFrames objectAnimation = new ObjectAnimationUsingKeyFrames();
+            // do not display the element from beginning
             objectAnimation.KeyFrames.Add(new DiscreteObjectKeyFrame(Visibility.Collapsed, KeyTime.FromPercent(.0)));
             objectAnimation.KeyFrames.Add(new DiscreteObjectKeyFrame(Visibility.Visible, KeyTime.FromPercent(1)));
             objectAnimation.Duration = TimeSpan.FromSeconds(duration);
