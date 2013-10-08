@@ -28,7 +28,7 @@ namespace Aero
 
         public void MoveCurrentToNext()
         {
-            //向前移动，取Viewport3D的第一个Viewport2DVisual3为当前Viewport2DVisual3D
+            //向前移动，取Viewport3D的第一个Viewport2DVisual3D为当前Viewport2DVisual3D
             var current = this.myViewport3D.Children[0];
             var child1 = this.myViewport3D.Children[1];
             var child2 = this.myViewport3D.Children[2];
