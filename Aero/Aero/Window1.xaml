@@ -14,10 +14,13 @@
         <DiffuseMaterial x:Key="material" Viewport2DVisual3D.IsVisualHostMaterial="True" Brush="Transparent" />
     </Window.Resources>
     <Grid>
+        <!--For EdgeMode, just try those options to find the right one-->
         <Viewport3D  x:Name="myViewport3D" RenderOptions.EdgeMode="Unspecified" ClipToBounds="False" IsHitTestVisible="False">
             <Viewport3D.Camera>
+                <!--Imagine a camera's position on a x-y-z coordinate system-->
                 <PerspectiveCamera Position="0,0,8"  />
             </Viewport3D.Camera>
+            <!--Here StaticResource can be changed to DynamicResource--> 
             <Viewport2DVisual3D x:Name="viewport2DVisual3D0" Geometry="{StaticResource geometry}"  Material="{StaticResource material}" >
                 <Viewport2DVisual3D.Transform>
                     <Transform3DGroup>
