@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Media3D;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace Aero
 {
@@ -24,6 +25,21 @@ namespace Aero
         public Window1()
         {
             InitializeComponent();
+
+            var t = new DispatcherTimer();
+            // 1 second
+            t.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            t.Tick += RotatePhoto;
+            t.IsEnabled = true;
+            t.Start();
+        }
+
+        private void RotatePhoto(object sender, EventArgs e)
+        {
+            if (rotation.Angle < 90)
+                rotation.Angle++;
+            else
+                rotation.Angle = 0;
         }
 
         public void MoveCurrentToNext()

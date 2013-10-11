@@ -26,7 +26,7 @@
                     <Transform3DGroup>
                         <RotateTransform3D CenterX="0" CenterY="0" CenterZ="0">
                             <RotateTransform3D.Rotation>
-                                <AxisAngleRotation3D Axis="0,1,0" Angle="35"/>
+                                <AxisAngleRotation3D x:Name="rotation" Axis="0,1,0" Angle="35"/>
                             </RotateTransform3D.Rotation>
                         </RotateTransform3D>
                         <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
